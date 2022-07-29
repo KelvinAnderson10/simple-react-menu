@@ -15,40 +15,8 @@ class Dashboard extends Component{
         super(props)
         this.state = {
             currentNav: '',
-            Menu: [
-                {
-                    id: "M001",
-                    nama: "Nasi Goreng",
-                    harga: 10000,
-                },
-                {
-                    id: "M002",
-                    nama: "Ayam Bakar",
-                    harga: 12000,
-                },
-                {
-                    id: "M003",
-                    nama: "Indomie Kuah",
-                    harga: 10000,
-                },
-                ],
-            Table: [
-                {
-                    id: "T001",
-                    nomor: "1",
-                    status: 'Available',
-                },
-                {
-                    id: "T002",
-                    nomor: "2",
-                    status: 'Available',
-                },
-                {
-                    id: "T003",
-                    nomor: "3",
-                    status: 'Unavailable',
-                },
-                ],
+            Menu: [],
+            Table: [],
         }
     }
 
@@ -60,18 +28,18 @@ class Dashboard extends Component{
 
     handleSubmitMenu = (menu) => {
         this.setState({
-            Menu: [...this.state.Menu, menu]
+            Menu: [...this.props.Menu, menu]
         })
     }
 
     handleSubmitTable = (table) => {
         this.setState({
-            Table: [...this.state.Table, table]
+            Table: [...this.props.Table, table]
         })
     }
 
     handleDeleteMenu = (index) => {
-        let menuTemp = this.state.Menu
+        let menuTemp = this.props.Menu
         menuTemp.splice(index, 1)
         this.setState({
             Menu: [...menuTemp]
@@ -79,7 +47,7 @@ class Dashboard extends Component{
     }
 
     handleDeleteTable = (index) => {
-        let tableTemp = this.state.Table
+        let tableTemp = this.props.Table
         tableTemp.splice(index, 1)
         this.setState({
             Table: [...tableTemp]
@@ -90,10 +58,10 @@ class Dashboard extends Component{
         let display = '';
         switch (this.state.currentNav) {
             case 'Menu':
-                display = <Menu handleDelete={this.handleDeleteMenu} menu={this.state.Menu} addItemToArray={this.handleSubmitMenu}></Menu>
+                display = <Menu handleDeleteMenu={this.handleDeleteMenu} menu={this.props.Menu} addItemToArrayMenu={this.handleSubmitMenu}></Menu>
                 break;
             case 'Table':
-                display = <Table handleDelete={this.handleDeleteTable} table={this.state.Table} addItemToArray={this.handleSubmitTable}></Table>
+                display = <Table handleDeleteTable={this.handleDeleteTable} table={this.props.Table} addItemToArrayTable={this.handleSubmitTable}></Table>
                 break;
         
             default:

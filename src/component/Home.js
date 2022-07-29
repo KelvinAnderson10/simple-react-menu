@@ -7,7 +7,7 @@ class Home extends Component{
     render(){
         return(
             <div>
-                <Dashboard callback={this.props.callback}></Dashboard>
+                <Dashboard Menu={this.props.Menu} Table={this.props.Table} callback={this.props.callback}></Dashboard>
                 <Footer></Footer>
             </div>
 

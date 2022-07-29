@@ -10,7 +10,41 @@ class App extends Component {
   constructor(props){
   super(props)
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: false,
+      Menu: [
+        {
+            id: "M001",
+            nama: "Nasi Goreng",
+            harga: 10000,
+        },
+        {
+            id: "M002",
+            nama: "Ayam Bakar",
+            harga: 12000,
+        },
+        {
+            id: "M003",
+            nama: "Indomie Kuah",
+            harga: 10000,
+        },
+        ],
+    Table: [
+        {
+            id: "T001",
+            nomor: "1",
+            status: 'Available',
+        },
+        {
+            id: "T002",
+            nomor: "2",
+            status: 'Available',
+        },
+        {
+            id: "T003",
+            nomor: "3",
+            status: 'Unavailable',
+        },
+        ],
     }
   }
 
@@ -34,7 +68,7 @@ class App extends Component {
   render(){
     return(
       <>
-      {this.state.isLoggedIn ? <Home callback={this.handleLogout}></Home> : <AppLogin callback={this.handleLogin}></AppLogin>}
+      {this.state.isLoggedIn ? <Home Menu={this.state.Menu} Table={this.state.Table} callback={this.handleLogout}></Home> : <AppLogin callback={this.handleLogin}></AppLogin>}
       </>
     )
   }

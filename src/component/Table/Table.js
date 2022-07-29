@@ -24,13 +24,13 @@ class Table extends Component{
         this.setState({
             isAddTable: false,
         })
-        this.props.addItemToArray(table)
+        this.props.addItemToArrayTable(table)
     }
     render(){
         return(
             <>
             {this.state.isAddTable ? <AddTable cancel={this.cancelForm} addItemToArray={this.handleSubmit}></AddTable>
-            : <ShowTable handleDelete={this.props.handleDelete} table={this.props.table} addItem={this.addTableForm}></ShowTable>}
+            : <ShowTable handleDelete={this.props.handleDeleteTable} table={this.props.table} addItem={this.addTableForm}></ShowTable>}
             </>
         )
     }

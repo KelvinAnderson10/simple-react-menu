@@ -25,13 +25,13 @@ class Menu extends Component{
         this.setState({
             isAddItem: false,
         })
-        this.props.addItemToArray(menu)
+        this.props.addItemToArrayMenu(menu)
     }
     render(){
         return(
             <>
             {this.state.isAddItem ? <AddMenu cancel={this.cancelForm} addItemToArray={this.handleSubmit}></AddMenu> 
-            : <ShowMenu handleDelete={this.props.handleDelete} menu={this.props.menu} addItem={this.addItemForm} ></ShowMenu>}
+            : <ShowMenu handleDelete={this.props.handleDeleteMenu} menu={this.props.menu} addItem={this.addItemForm} ></ShowMenu>}
             </>
         )
     }
