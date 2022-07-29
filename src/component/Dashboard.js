@@ -78,6 +78,14 @@ class Dashboard extends Component{
         })
     }
 
+    handleDeleteTable = (index) => {
+        let tableTemp = this.state.Table
+        tableTemp.splice(index, 1)
+        this.setState({
+            Table: [...tableTemp]
+        })
+    }
+
     render(){
         let display = '';
         switch (this.state.currentNav) {
@@ -85,7 +93,7 @@ class Dashboard extends Component{
                 display = <Menu handleDelete={this.handleDeleteMenu} menu={this.state.Menu} addItemToArray={this.handleSubmitMenu}></Menu>
                 break;
             case 'Table':
-                display = <Table table={this.state.Table} addItemToArray={this.handleSubmitTable}></Table>
+                display = <Table handleDelete={this.handleDeleteTable} table={this.state.Table} addItemToArray={this.handleSubmitTable}></Table>
                 break;
         
             default:

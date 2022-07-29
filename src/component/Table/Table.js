@@ -30,7 +30,7 @@ class Table extends Component{
         return(
             <>
             {this.state.isAddTable ? <AddTable cancel={this.cancelForm} addItemToArray={this.handleSubmit}></AddTable>
-            : <ShowTable table={this.props.table} addItem={this.addTableForm}></ShowTable>}
+            : <ShowTable handleDelete={this.props.handleDelete} table={this.props.table} addItem={this.addTableForm}></ShowTable>}
             </>
         )
     }

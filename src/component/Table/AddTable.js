@@ -74,9 +74,11 @@ class AddTable extends Component{
                     </div>
                     <div className="row mb-3">
                         <label className="col col-form-label" htmlFor="harga">Status</label>
-                        <div className="col-8">
-                            <input type='number' className='form-control' id='harga' placeholder="Status" onChange={this.handlestatusChange}></input>
-                        </div>
+                        <select onChange={this.handlestatusChange} class="form-select form-select-sm" aria-label="Default select example" style={{width:'auto', marginRight: '3%'}}>
+                        <option selected disabled>--Pick an Option--</option>
+                        <option value="Available">Available</option>
+                        <option value="unavailable">Unavailable</option>
+                        </select>
                     </div>
                     <br></br>
                     <div style={{display:'flex', justifyContent:'space-around'}}>

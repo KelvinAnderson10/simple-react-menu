@@ -16,7 +16,6 @@ class ShowMenu extends Component {
                 <table className="table table-striped mt-4" id='menutable'>
                 <thead className="table-dark"  style={{textAlign: 'center'}}>
                     <tr>
-                        <th>Id</th>
                         <th>Nama Makanan</th>
                         <th>Harga</th>
                         <th>Actions</th>
@@ -26,7 +25,6 @@ class ShowMenu extends Component {
                 {this.props.menu.map((item, index) => {
                     return (
                     <tr key={item.id}>
-                        <td style={{verticalAlign: 'center'}}>{item.id}</td>
                         <td style={{verticalAlign: 'center'}}>{item.nama}</td>
                         <td style={{verticalAlign: 'center'}}>{item.harga}</td>
                         <td><button value='submit' className="btn btn-danger" onClick={() => this.handleDelete(index)}>Delete</button></td>

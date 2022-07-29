@@ -1,5 +1,7 @@
 import { Component } from "react";
 
+
+
 class ShowTable extends Component{
     constructor(props) {
         super(props);
@@ -16,7 +18,6 @@ class ShowTable extends Component{
                 <table className="table table-striped mt-4">
                 <thead className="table-dark"  style={{textAlign: 'center'}}>
                     <tr>
-                        <th>Id</th>
                         <th>Nomor Meja</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -26,9 +27,8 @@ class ShowTable extends Component{
                 {this.props.table.map((item, index) => {
                     return (
                     <tr key={item.id}>
-                        <td>{item.id}</td>
                         <td>{item.nomor}</td>
-                        <td>{item.status}</td>
+                        <td  style={{color: item.status === "Available" ? "green" : "red" }}>{item.status}</td>
                         <td><button value='submit' className="btn btn-danger" onClick={() => this.handleDelete(index)}>Delete</button></td>
                     </tr>
                     );
