@@ -1,57 +1,35 @@
 import { Component } from "react";
 
 class ShowMenu extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            Menu: [
-            {
-                id: "M001",
-                nama: "Nasi Goreng",
-                harga: 10000,
-            },
-            {
-                id: "M002",
-                nama: "Ayam Bakar",
-                harga: 12000,
-            },
-            {
-                id: "M003",
-                nama: "Indomie Kuah",
-                harga: 10000,
-            },
-            {
-                id: "M004",
-                nama: "Es Teh Manis",
-                harga: 5000,
-            },
-            {
-                id: "M005",
-                nama: "Nasi Putih",
-                harga: 4000,
-            },
-            ],
-        };
+    constructor(props){
+        super(props)
+        this.state = {}
+    }
+
+    handleDelete = (index) => {
+        this.props.handleDelete(index);
     }
     render() {
-        return (
+        return(
             <div className="container-lg">
                 <br></br>
-                <table className="table table-striped mt-4">
-                <thead className="table-dark">
+                <table className="table table-striped mt-4" id='menutable'>
+                <thead className="table-dark"  style={{textAlign: 'center'}}>
                     <tr>
-                        <th scope="col">Id</th>
+                        <th>Id</th>
                         <th>Nama Makanan</th>
                         <th>Harga</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                {this.state.Menu.map((item) => {
+                <tbody style={{textAlign: 'center'}}>
+                {this.props.menu.map((item, index) => {
                     return (
                     <tr key={item.id}>
-                        <td>{item.id}</td>
-                        <td>{item.nama}</td>
-                        <td>{item.harga}</td>
+                        <td style={{verticalAlign: 'center'}}>{item.id}</td>
+                        <td style={{verticalAlign: 'center'}}>{item.nama}</td>
+                        <td style={{verticalAlign: 'center'}}>{item.harga}</td>
+                        <td><button value='submit' className="btn btn-danger" onClick={() => this.handleDelete(index)}>Delete</button></td>
                     </tr>
                     );
                 })}
@@ -61,7 +39,7 @@ class ShowMenu extends Component {
                 <br></br>
                 <br></br>
                 <div className="text-center">
-                    <button type="button" className="btn btn-primary">Add Menu</button>
+                    <button type="button" className="btn btn-primary  btn-lg" onClick={this.props.addItem}>Add Menu</button>
                 </div>
             </div>
         );

@@ -2,6 +2,9 @@ import { Alert, Button } from "bootstrap";
 import { Component } from "react";
 import { Container, Nav, Navbar as NavbarBS, NavDropdown} from "react-bootstrap";
 import MainMenu from "./MainMenu";
+import AddMenu from "./Menu/AddMenu";
+import Menu from "./Menu/Menu";
+import Table from "./Table/Table";
 import ShowMenu from "./Menu/ShowMenu";
 import ShowTable from "./Table/ShowTable";
 
@@ -11,7 +14,41 @@ class Dashboard extends Component{
     constructor(props){
         super(props)
         this.state = {
-            currentNav: ''
+            currentNav: '',
+            Menu: [
+                {
+                    id: "M001",
+                    nama: "Nasi Goreng",
+                    harga: 10000,
+                },
+                {
+                    id: "M002",
+                    nama: "Ayam Bakar",
+                    harga: 12000,
+                },
+                {
+                    id: "M003",
+                    nama: "Indomie Kuah",
+                    harga: 10000,
+                },
+                ],
+            Table: [
+                {
+                    id: "T001",
+                    nomor: "1",
+                    status: 'Available',
+                },
+                {
+                    id: "T002",
+                    nomor: "2",
+                    status: 'Available',
+                },
+                {
+                    id: "T003",
+                    nomor: "3",
+                    status: 'Unavailable',
+                },
+                ],
         }
     }
 
@@ -21,14 +58,34 @@ class Dashboard extends Component{
         })
     }
 
+    handleSubmitMenu = (menu) => {
+        this.setState({
+            Menu: [...this.state.Menu, menu]
+        })
+    }
+
+    handleSubmitTable = (table) => {
+        this.setState({
+            Table: [...this.state.Table, table]
+        })
+    }
+
+    handleDeleteMenu = (index) => {
+        let menuTemp = this.state.Menu
+        menuTemp.splice(index, 1)
+        this.setState({
+            Menu: [...menuTemp]
+        })
+    }
+
     render(){
         let display = '';
         switch (this.state.currentNav) {
             case 'Menu':
-                display = <ShowMenu></ShowMenu>
+                display = <Menu handleDelete={this.handleDeleteMenu} menu={this.state.Menu} addItemToArray={this.handleSubmitMenu}></Menu>
                 break;
             case 'Table':
-                display = <ShowTable></ShowTable>
+                display = <Table table={this.state.Table} addItemToArray={this.handleSubmitTable}></Table>
                 break;
         
             default:
@@ -48,7 +105,7 @@ class Dashboard extends Component{
                                     
                                 </Nav>
                                 <Nav className="ms-auto p-2 bd-highlight">
-                                    <button className="btn btn-danger" type="submit">Logout</button>
+                                    <button className="btn btn-danger" type="submit" onClick={this.props.callback}>Logout</button>
                                 </Nav>
                             </NavbarBS.Collapse>
                     </Container>
