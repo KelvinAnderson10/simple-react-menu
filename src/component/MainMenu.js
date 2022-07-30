@@ -1,7 +1,8 @@
 import { Component } from "react";
-
+import Background from './wmb.png'
 const dashboard = {
-    backgroundImage: "url('https://pedjapetkovic.com/wp-content/uploads/2017/09/mountain-hotel-restaurant-bar-area-view.jpg')",
+    backgroundImage: `url(${Background})`,
+    backgroundSize: 'cover'
 }
 
 const title = {
@@ -16,7 +17,6 @@ class MainMenu extends Component{
                     <br></br>
                     <br></br>
                     <br></br>
-                    <h1 style={title}>WARUNG MAKAN BAHARI</h1>
                 </div>
             </div>
         )

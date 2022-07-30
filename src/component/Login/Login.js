@@ -7,7 +7,8 @@
         justifyContent: 'space-around',
         color: 'white',
         height: '100vh',
-        backgroundImage: 'url("https://images.wallpaperscraft.com/image/single/restaurant_cafe_appliances_tables_chairs_interior_design_39216_1920x1080.jpg")'
+        backgroundImage: 'url("https://arsitagx-master.s3.ap-southeast-1.amazonaws.com/img_medium/2737/2361/16051/photo-dining-area-sushigroove-market-desain-arsitek-oleh-alvin-tjitrowirjo-alvint-studio.jpeg")',
+        backgroundSize: 'cover'
     }
     
     const loginContainer = {
@@ -42,7 +43,7 @@
     class TitleComponent extends Component {
         render() {
         return(
-            <div className="bg-danger" style={{borderRadius: '20px', padding: '2%'}}>
+            <div className="bg-warning" style={{borderRadius: '20px', padding: '2%'}}>
             <h1>Warung Makan Bahari</h1>
             <h3>Best Warung 2022</h3>
         </div>
